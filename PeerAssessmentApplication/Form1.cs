@@ -20,8 +20,16 @@ namespace PeerAssessmentApplication
 
         private void WriteButton_Click(object sender, EventArgs e)
         {
-            PDFwriter writer = new PDFwriter();
-            writer.Write();
+            SaveFileDialog saveFile = new SaveFileDialog
+            {
+                FileName = "form.pdf",
+                Filter = "PDF Files (*.pdf)|*.pdf"
+            };
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                PDFwriter writer = new PDFwriter();
+                writer.Write(saveFile.FileName);
+            }            
         }
 
         private void ReadButton_Click(object sender, EventArgs e)

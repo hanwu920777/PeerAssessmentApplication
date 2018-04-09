@@ -20,9 +20,9 @@ namespace PeerAssessmentApplication
         private Font defaultFont;
         private Font headingFont;
         public static String[] LANGUAGES_gc = { "English", "German", "Spanish" };
-        public void Write()
+        public void Write(string fileName)
         {
-            fs = new FileStream("Example1.pdf", FileMode.Create, FileAccess.Write, FileShare.None);
+            fs = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None);
             document = new Document(PageSize.A4);
             document.SetMargins(ConvertX(25), ConvertX(25), ConvertX(25), ConvertX(25));
             writer = PdfWriter.GetInstance(document, fs);
